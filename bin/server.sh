@@ -13,6 +13,7 @@ function main {
     while true; do
         coproc incoming_request
         nc -l -p 8080 <&"${COPROC[0]}" >&"${COPROC[1]}"
+        wait $!
     done
 }
 
